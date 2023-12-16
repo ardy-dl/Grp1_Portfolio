@@ -7,7 +7,7 @@ from jump_search import jump_search
 from interpolation_search import interpolation_search
 from ternary_search import ternary_search
 from data_set import generate_sorted_list
-from infix_to_postfix import infix_to_postfix
+from stack_operations import infixToPostfix
 
 app = Flask(__name__)
 
@@ -233,8 +233,8 @@ def index():
 @app.route('/convert', methods=['POST'])
 def convert():
     infix_expression = request.form['infix_expression']
-    postfix_expression = stack_operations(infix_expression)
-    return render_template('index.html', infix_expression=infix_expression, postfix_expression=postfix_expression)
+    output = infixToPostfix(infix_expression)
+    return render_template('index.html', output=output)
 
 if __name__ == "__main__":
     app.run(debug=True)

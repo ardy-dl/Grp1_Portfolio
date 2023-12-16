@@ -6,7 +6,6 @@ class Node:
 class Stack:
     def __init__(self):
         self.top = None
-        self.tail = None
         self.size = 0
 
     def push(self, data):
@@ -31,51 +30,37 @@ class Stack:
             return self.top.data
         else:
             raise IndexError("peek from an empty stack")
-        
-    def print(self):
-        current_node = self.top
-        result = ''
-
-        while current_node is not None:
-            result = str(current_node.data) + '' + result
-            current_node = current_node.next
-
-        return result
 
     def is_empty(self):
         return self.size == 0
 
-    def length(self):
-        return self.size
-    
-def infixToPostfix(infix_expression):
-    operators = {'+':1, '-':1, '*':2, '/':2, '(':0}
-    ops = Stack()
-    output = Stack()
+def precedence(op):
+    if op == '+' or op == '-':
+        return 1
+    elif op == '*' or op == '/':
+        return 2
+    return 0
 
-    for token in infix_expression:
-        if token.isalnum():
-            output.push(token)
-        elif token == '(':
-            ops.push(token)
-        elif token == ')':
+def infixToPostfix(expression):
+    ops = Stack()
+    output = ''
+    for char in expression:
+        if char.isalpha():
+            output += char
+        elif char == '(':
+            ops.push(char)
+        elif char == ')':
             while not ops.is_empty() and ops.peek() != '(':
-                output.push(ops.pop())
+                output += ops.pop()
             ops.pop()
         else:
-            while not ops.is_empty and operators[token] <= operators[ops.peek()]:
-                output.push(ops.pop(token))
-            ops.push(token)
-
+            while not ops.is_empty() and precedence(char) <= precedence(ops.peek()):
+                output += ops.pop()
+            ops.push(char)
     while not ops.is_empty():
-        output.push(ops.pop())
-
-    return output.print()
-
+        output += ops.pop()
+    return output
 
 # Example usage:
-infix_expression = "(A+B)*(C+D)"
-print(infixToPostfix(infix_expression)) # Output: "3524-*+"
-
-    
-
+infix_expression = "A*(B+C)/D"
+print(infixToPostfix(infix_expression))

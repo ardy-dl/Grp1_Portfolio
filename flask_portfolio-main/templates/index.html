@@ -3,10 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://icons8.com/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <title>Infix to Postfix</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', 'Orbitron', Arial, sans-serif;
+            background-color: black;
+        }
+
+        .main-content {
+            font-family: 'Orbitron';
+            
+        }
+
+        .itp{
+            text-align: center;
+            margin-left: 50px;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 50px;
+        }
+
+        .to{
+            color: red;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 500;
+            margin-left: 480px;
+            margin-bottom: 10px;
+            color:  rgb(180, 100, 100);
+        }
+
+        input {
+            margin-bottom: 50px;
+            margin-left: 480px;
+            width: 20%;
+            outline: none;
+        }
+
+        input:focus {
+            border-bottom: 5px solid rgb(0, 0, 0);
+        }
+        /* Content */
+        .title{
+            color: rgb(180, 100, 100);
+            text-align: center;
+        }
+
+        .def{
+            width: 50%;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .output-section {
+            color: white;
+        }
+        /* Style the submit button */
+        button[type="submit"] {
+            display: flex;
+            border: none;
+            font-family: 'Orbitron';
+            background-color:white; 
+            color: black; 
+            padding: 10px 20px; 
+            width:10%;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center !important;
+            transition: background-color 0.3s ease; 
+            margin-left: 580px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff0000;
+        }
+
+        /* FOOTER STARTS HERE */
+
+        footer {
+            color: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #555;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .copyright {
+            font-family: "Open Sans", sans-serif;
+            justify-content: center;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,10 +126,15 @@
             called Reverse Polish Notation) is a single letter or an operator, preceded by two postfix strings. Every
             postfix string longer than a single variable contains first and second operands followed by an
             operator.e.g. A,A B +,A B + C D –a</p>
-            <form>
+
+            <form action="/convert" method="post">
                 <label for="infixInput">Enter infix expression:</label>
                 <input type="text" id="infixInput" name="infix_expression">
-                <label for="result">Postfix expression is:</label>
+                {% if output %}
+                <div class="output-section">
+                    <label for="output">Postfix expression is: </label> {{ output }}
+                </div>
+                {% endif %}
                 <br>
                 
                 <button type="submit">
@@ -30,7 +142,7 @@
                     <img class="continue-btn">
                 </button>
             </form>
-        
+
 <footer>
         &copy; 2023 BSCOE 2-6 (Group 1). All rights reserved.
     </div>
