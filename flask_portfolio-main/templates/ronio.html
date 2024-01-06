@@ -1,88 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile Page</title>
-    <style>
-        body {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            background: burlywood;
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: white;
-            padding: 20px;
-            max-width: 70%;
-            margin: 0 auto;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rai's Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
 
-        .profile {
-            overflow: hidden;
-            position: relative;
-            border: 2px solid #fff;
-            padding: 20px;
-            background-color: rgb(120, 92, 137);
-        }
+    .container {
+      max-width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        img {
-            float: left;
-            margin-right: 10px;
-            max-width: 100%;
-            height: auto;
-        }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .rai-motto {
-            clear: left;
-            margin-top: 15%;
-        }
+    .rm-background img {
+      width: 100%;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
 
-        .rm-info {
-            margin-left: 30px;
-            display: inline-block;
-            vertical-align: top;
-        }
+    .rm-info {
+      padding: 20px;
+      margin-top: -100px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
 
-        .centered-text {
-            text-align: center;
-        }
+    .rm-info img {
+      border-radius: 50%;
+      border: 5px solid #fff;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 2;
+    }
 
-        @media screen and (max-width: 768px) {
-            body {
-                font-size: 1rem;
-            }
+    h1 {
+      margin: 5px 0 5px 0;
+    }
 
-            .profile {
-                text-align: center;
-                padding: 20px;
-            }
+    em {
+      font-style: normal;
+      color: #65676b;
+    }
 
-            img {
-                float: none;
-            }
+    p {
+      margin: 5px 0;
+      color: #65676b;
+    }
 
-            .rm-info, .rai-motto {
-                position: static;
-                text-align: center;
-                max-width: 100%;
-            }
-        }
-    </style>
+    .rm-motto-about {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .rai-motto,
+    .rai-about {
+      flex: 1;
+      border: #d1d1d1 solid 1px;
+      border-radius: 5px;
+      margin: 5px;
+      padding: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .rai-motto p {
+      font-style: italic;
+      color: #555;
+      text-align: center;
+    }
+
+    .rai-about {
+      text-align: left;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #65676b;
+      text-decoration: none;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="centered-text">
-        <h1>Welcome to my Profile Page</h1>
-        <p><em>This is a simple profile page rendered using Flask's templating.</em></p>
-    </div>
+  <div class="container">
     <div class="profile">
-        <img src="https://github.com/RMAELILLA/rai/blob/main/rai.jpg?raw=true" width="370" height="370">
-        <div class="rm-info">
-            <h1>Ryza Mae Ronio</h1>
+      <div class="rm-background">
+        <img src="https://media.juiceonline.com/2020/05/sunsilk2-1-1024x500.jpg" alt="Background Image">
+      </div>
+      <div class="rm-info">
+        <img src="https://github.com/RMAELILLA/rai/blob/main/rai.jpg?raw=true" alt="Profile Image" width="200" height="200">
+        <div class="name">
+          <h1>Ryza Mae Ronio <em>"Rai"</em></h1>
+        </div>
+        <div class="rm-motto-about">
+          <div class="rai-motto">
+            <p>Struggles are like stones in our way, we decide either we bring it together with us or pass through it.</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/ryzamae.ronio.9"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/ryza.mpr"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/RMAELILLA"><i class="fab fa-github"></i></a>
+              <a href="mailto:ronioryzamae12@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="rai-about">
             <p>Bachelor of Science in Computer Engineering</p>
             <p>Data Structures and Algorithm</p>
             <p>BSCpE 2-6</p>
+          </div>
         </div>
-        <div class="rai-motto">
-            <h1><em>"Rai"</em></h1>
-            <p>Struggles are like stones in our way, we decide either we bring it together with us or pass through it.</p>
-        </div>
+      </div>
     </div>
+  </div>
 </body>
 </html>
