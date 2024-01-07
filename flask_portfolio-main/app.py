@@ -55,6 +55,18 @@ def contact():
 def searchalgo():
     return render_template("searchalgo.html")
 
+@app.route('/dequeue_queue')
+def dequeue_queue():
+    return render_template("dequeue_queue.html")
+
+@app.route('/queue')
+def queue():
+    return render_template("queue.html")
+
+@app.route('/dequeue')
+def dequeue():
+    return render_template("dequeue.html")
+
 @app.route("/small_array", methods=["GET", "POST"])
 def small_array():
 
