@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Linked List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        #cover-photo {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #display-section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Queue Linked List</h1>
+    </header>
+
+    <div id="cover-photo">
+        <!-- Add your cover photo content here -->
+        <p>Cover Photo</p>
+    </div>
+
+    <div id="display-section">
+        <!-- Display section for output -->
+        <h2>Queue:</h2>
+        <ul id="queue-display"></ul>
+    </div>
+
+    <form id="queue-form">
+        <label for="data">Enter Data:</label>
+        <input type="text" id="data" required>
+        <button type="button" onclick="enqueueFront()">Add to Queue</button>
+        <button type="button" onclick="removeFront()">Remove</button>
+    </form>
+
+    <script>
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        class Queue {
+            constructor() {
+                this.front = null;
+                this.rear = null;
+            }
+
+            enqueueFront(data) {
+                const newNode = new Node(data);
+                if (!this.front) {
+                    this.front = newNode;
+                    this.rear = newNode;
+                } else {
+                    newNode.next = this.front;
+                    this.front = newNode;
+                }
+                this.updateDisplay();
+            }
+
+            removeFront() {
+                if (this.front) {
+                    if (this.front === this.rear) {
+                        this.front = null;
+                        this.rear = null;
+                    } else {
+                        let current = this.front;
+                        while (current.next !== this.rear) {
+                            current = current.next;
+                        }
+                        current.next = null;
+                        this.rear = current;
+                    }
+                    this.updateDisplay();
+                }
+            }
+
+            toArray() {
+                const result = [];
+                let current = this.front;
+                while (current) {
+                    result.push(current.data);
+                    current = current.next;
+                }
+                return result;
+            }
+
+            updateDisplay() {
+                const displaySection = document.getElementById('queue-display');
+                const queueArray = this.toArray();
+                const listItems = queueArray.map(item => `<li>${item}</li>`).join('');
+                displaySection.innerHTML = `<ul>${listItems}</ul>`;
+            }
+        }
+
+        const queue = new Queue();
+
+        function enqueueFront() {
+            const dataInput = document.getElementById('data');
+            const data = dataInput.value.trim();
+            if (data !== '') {
+                queue.enqueueFront(data);
+                dataInput.value = '';
+            }
+        }
+
+        function removeFront() {
+            queue.removeFront();
+        }
+    </script>
+
+</body>
+</html>

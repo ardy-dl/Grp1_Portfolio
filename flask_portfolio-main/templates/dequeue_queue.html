@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4 - Queue and DeQueue</title>
+    <style>
+
+        .array {
+            display: flex;
+            justify-content: center; 
+            gap: 20px; 
+            margin-top: 15%; 
+        }
+        
+        .container {
+          position: relative;
+          width: 100%;
+          max-width: 400px;
+          text-align: center;
+        }
+        
+        .container img {
+          width: 100%;
+          height: 250px; 
+          object-fit: cover; 
+        }
+        
+        .container .btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          background-color: #f1f1f1;
+          color: black;
+          font-size: 16px;
+          padding: 16px 30px;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          text-align: center;
+          opacity: 100%;
+        }
+        
+        .container .btn:hover {
+          background-color: black;
+          color: white;
+          opacity: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="array">
+        <div class="container">
+            <a href="{{ url_for('queue')}}">
+              <img src="{{ url_for('static', filename='small.jpg')}}" alt="Queue Image">
+              <button class="btn">Queue</button>
+            </a>
+        </div>
+        <div class="container">
+            <a href="{{ url_for('dequeue')}}">
+                <img src="{{ url_for('static', filename='medium.jpg')}}" alt="DeQueue Image">
+                <button class="btn">DeQueue</button>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
+
+    <p style="text-align: center;">
+        <a href="{{ url_for('home') }}">
+          <button class="btn">Go Back</button>
+        </a>
+    </p>
+
+</body>
+</html>
