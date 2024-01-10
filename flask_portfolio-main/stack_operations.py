@@ -61,6 +61,6 @@ def infixToPostfix(expression):
         output += ops.pop()
     return output
 
-# Example usage:
+'''# Example usage:
 infix_expression = "A*(B+C)/D"
-print(infixToPostfix(infix_expression))
+print(infixToPostfix(infix_expression))'''

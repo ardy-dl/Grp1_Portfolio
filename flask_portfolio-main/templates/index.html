@@ -5,31 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://icons8.com/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Infix to Postfix</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+
+        * {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0px;
+            padding: 0px;
             box-sizing: border-box;
-            font-family: Poppins, sans-serif;
-            background-color: black;
+        }
+  
+        body {
+            background-color: #ffffff;
+        }
+
+        .navbar-logo {
+            margin-left: 50px;
+            height:50px; 
+        }
+
+        .navbar-nav {
+            padding-left: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-item {
+            text-align: center; 
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            text-transform: uppercase;
+            color: #ffffff; 
+        }
+
+        .navbar {
+            background-color: #000000; 
+            position:fixed;
+            z-index: 101;
+            padding-right: 400px;
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                padding-left: 0 !important; 
+            }
+        }
+
+        /* Styling for the cover photo */
+        .cover-photo {
+            background-image: url('/static/stack-algo.png'); 
+            background-size: cover;
+            background-position: center;
+            height: 200px; 
+            position: relative;
+        }
+
+        .cov-phot {
+            padding-top: 66px;
+        }
+
+        
+        .intro-section {
+            font-size: 15px;
+            padding: 50px;
+            padding-bottom: 0px;
+            text-align: center;
+        }
+
+        .intro-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .intro-description {
+            padding-left: 100px;
+            padding-right: 100px;
         }
 
         .main-content {
-            font-family: Poppins, sans-serif;
+            padding-bottom: 30px;
         }
 
         .itp{
             text-align: center;
             margin-left: 50px;
             margin-bottom: 20px;
-            color: white;
+            color: black;
             font-size: 50px;
         }
 
         .to{
-            color: red;
+            color: black;
         }
 
         form {
@@ -41,7 +112,7 @@
             font-weight: 500;
             margin-left: 480px;
             margin-bottom: 10px;
-            color:  rgb(180, 100, 100);
+            color:#000000;
         }
 
         input {
@@ -63,62 +134,123 @@
         .def{
             width: 50%;
             margin: 0 auto;
-            color: white;
+            color: black;
             text-align: center;
             font-size: 15px;
             margin-bottom: 30px;
         }
 
         .output-section {
-            color: white;
+            color: black;
         }
         /* Style the submit button */
         button[type="submit"] {
-            display: flex;
-            border: none;
-            font-family: Poppins, sans-serif;
-            background-color:white; 
-            color: black; 
-            padding: 10px 20px; 
-            width:10%;
-            cursor: pointer;
+            display: inline-block;
+            padding: 10px 20px;
+            width: 10%;
             font-size: 16px;
-            text-align: center !important;
-            transition: background-color 0.3s ease; 
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #EAE1DA; /* Outer border color */
+            position: relative;
+            background-color: #000000;
+            color:#EAE1DA;
             margin-left: 580px;
-            align-items: center;
-            justify-content: center;
         }
 
-        button[type="submit"]:hover {
-            background-color: #ff0000;
+        button[type="submit"]:before {
+            content: "";
+            position: absolute;
+            top: 4px; /* Adjust the inner border position */
+            right: 4px; /* Adjust the inner border position */
+            bottom: 4px; /* Adjust the inner border position */
+            left: 4px; /* Adjust the inner border position */
+            border: 1px solid #EAE1DA; /* Inner border color */
         }
+        button[type="submit"]:hover {
+            opacity: 0.5;
+        } 
+
+        .btn2 {
+            top: 100.7%;
+            left: 49%;
+            padding: 10px 20px;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            position:absolute;
+            background-color: #000000;
+            color:#EAE1DA;
+        }
+
+        .btn2:before {
+            content: "";
+            position:absolute;
+            top: 4px; 
+            right: 4px;
+            bottom: 4px; 
+            left: 4px; 
+            border: 1px solid #ffffff; 
+        }
+
+        .btn2:hover {
+            opacity: 0.5;
+        }
+        
 
         /* FOOTER STARTS HERE */
-
-        footer {
-            color: white;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 1px solid #555;
-            text-align: center;
-            font-size: 15px;
+        .footer-section {
+            background-color: #000000; /* Set the background color to black */
         }
 
-        .copyright {
-            font-family: Poppins, sans-serif;
-            justify-content: center;
-            margin-top: 5px;
+        .footer-section p {
+            margin: 0;
+            font-size: 14px;
         }
+
+       
+  
     </style>
 </head>
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand navbar-logo" href=""><img src="/static/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('projects')}}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile')}}">Profiles</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <section class="cov-phot"> <div class="cover-photo"></div></section>
+
+        
+    <section class="intro-section">
+        <div class="container1">
+                <div class="col-md-12">
+                    <div class="intro-title">
+                        ✦ What is Infix to Postfix expression ✦
+                    </div>
+                </div>
+        </div>
+    </section>
+
+
+
     <div class="main-content">
-        <h1 class="itp">Infix <span class="to"> to </span> Postfix</h1>
-        <h2 class="title">What is infix and postfix expression?</h2>
         <p class="def">An infix expression is expression which is used by us in day today life An infix expression is a
             single letter, or an operator, proceeded by one infix string and followed by another infix string. e.g.
             A,A + B,(A + B) + (C – D).So,in which we have operators between operands.And postfix expression (also
@@ -129,23 +261,38 @@
             <form action="/convert" method="post">
                 <label for="infixInput">Enter infix expression:</label>
                 <input type="text" id="infixInput" name="infix_expression">
-                {% if output %}
+                <!-- {% if output %} -->
+                
                 <div class="output-section">
                     <label for="output">Postfix expression is: </label> {{ output }}
+                <!-- {% endif %} -->
                 </div>
-                {% endif %}
+            
                 <br>
+
                 
                 <button type="submit">
                     CONVERT
                     <img class="continue-btn">
                 </button>
             </form>
-
-<footer>
-        &copy; 2023 BSCOE 2-6 (Group 1). All rights reserved.
     </div>
-</footer>
+
+    <p style="text-align: center;">
+        <a href="{{ url_for('projects') }}">
+          <button class="btn2">GO BACK</button>
+        </a>
+    </p>
+    
+    <footer class="footer-section">
+        <div class="container text-center text-white py-2">
+            &copy; 2023 Group I BSCpE 2-6 | All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

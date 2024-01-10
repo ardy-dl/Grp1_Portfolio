@@ -1,264 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    * {
-        font-family: Poppins, sans-serif;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    .group-profile {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 150px;
-      max-height: 350px;
-      margin: 5px;
-      margin-top: 30px;
-      text-align: center;
-      font-family: arial;
-      font-size: 10px;
-    }
-
-    .card:hover {
-        transform: scale(1.05);
-
-    }
-   
-    a span {
-        position: absolute;
-    }   
-    
-    .title {
-      color: grey;
-      font-size: 12px;
-    }
-    
-    button {
-      border: none;
-      outline: 0;
-      display: inline-block;
-      padding: 8px;
-      color: white;
-      background-color: #000;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      font-size: 12px;
-    }
-    
-    a {
-      text-decoration: none;
-      font-size: 12px;
-      color: black;
-    }
-    
-    button:hover, a:hover {
-      opacity: 0.7;
-    }
-
-    .lab-file {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        gap: 20px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Group I | Home</title>
+    <style>
+        * {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
         }
 
-    .course-box {
-        height: 300px;
-        width: 450px;
-        display:flex;
-        border-radius: 10px;
-        background-color: #FFFF;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        transition: ease 0.3s;
-        cursor: pointer;
-        margin-left: 25px;
-    }
+        body {
+            background-color: #ffffff;
+        }
 
-    .course-box:hover {
-        transform: scale(1.05);
-    }
+        .navbar-logo {
+            margin-left: 50px;
+            height:50px; 
+        }
 
-    .course-image {
-        border-radius: 10px 10px 0 0;
-        width: 500px;
-        max-width: 100%;
-        height: 220px;
-    }
+        .navbar-nav {
+            padding-left: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .course-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin: 0px 5px 0px 5px;
-        padding: 5px;
-    }
+        .navbar-nav .nav-item {
+            text-align: center; 
+        }
 
-    .course-type {
-        font-size: 15px;
-        padding-left: 10px;
-        padding: 0px 0px 0px 5px;
-        margin: 0px 5px 0px 10px;
-    }
+        .navbar-nav .nav-item .nav-link {
+            text-transform: uppercase; 
+            color: #ffffff; 
+        }
+
+        .navbar {
+            background-color: #000000; 
+            position:fixed;
+            z-index: 101;
+            padding-right: 400px;
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                padding-left: 0 !important; 
+            }
+        }
+
+        /* Styling for the cover photo */
+        .cover-photo {
+            background-image: url('/static/Portfolio.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 400px; 
+        }
+
+        .cov-phot {
+            padding-top: 66px;
+        }
+
+        .intro-section {
+            font-size: 15px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro-title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* New section for Sneak Peek */
+        .sneak-peek-section {
+            font-size: 15px;
+            height: 58vh;
+            background-color: #EAE1DA; 
+            padding: 20px;
+            margin-top: -20px;
+            margin-bottom: 0px;
+            position: relative; 
+        }
+
+        .sneak-peek-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 20px;
+            margin-bottom: 20px;
+            text-align: center; 
+        }
+
+        .sneak-peek-list {
+            font-size: 15px;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .sneak-peek-section .sneak-peek-list ol,
+        .sneak-peek-section .sneak-peek-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sneak-peek-section .sneak-peek-list li {
+            margin-bottom: 10px;
+        }
+
+        .sneak-peek-columns {
+            column-count: 4;
+        }
+
+        /* Black border inside the brown background */
+        .sneak-peek-border {
+            position: absolute;
+            top: 8px;
+            right: -168px;
+            bottom: -10px;
+            left: -168px;
+            border: 2px solid #000000; 
+            box-sizing: border-box;
+        }
+
+        .creators-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .creator {
+            flex: 0 0 calc(24% - 40px); 
+            margin-bottom: 40px;
+        }
+
+        .creator img {
+            width: 100%;
+            height: auto;
+        }
+
+        .footer-section {
+            background-color: #000000; 
+        }
+
+        .footer-section p {
+            margin: 0;
+            font-size: 14px;
+        }
+
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h2 style="text-align:center">Group 1 | Data Structure and Algorithm Portfolio</h2>
-    </div>
-    <br>
-    <div class="group-lab">
-        <h3 style="text-align: center">Laboratories</h3>
-        <div class="lab-file">
-            <div class="course-box">
-               <a href="{{ url_for('searchalgo')}}">
-               <img class ="course-image" image src="{{ url_for('static', filename= 'search-cover.png')}}" width="50%">
-               <p class="course-title">SEARCH ALGORITHMS</p>
-               <p class="course-type">OBJECTIVE: To implement and compare the performance of various search algorithms on different data sets.</p>
-               </a>
-            </div>
-            <div class="course-box">
-                <a href="{{ url_for('index')}}">
-                <img class ="course-image" image src="{{ url_for('static', filename= 'stack-cover.png')}}" width="50%">
-                <p class="course-title">STACK</p>
-                <p class="course-type">OBJECTIVE: To implement the Shunting Yard algorithm for Infix to postfix notation using Stack data structure.</p>
-                </a>
-            </div>
-            <div class="course-box">
-                <a href="#"><img class ="course-image" image src="{{ url_for('static', filename= 'qdq-cover.jpg')}}" width="50%">
-                <p class="course-title">QUEUES AND DEQUEUES</p>
-                <p class="course-type">OBJECTIVE: To implement Queue and De-que data structure using linked list.</p>
-                </a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand navbar-logo" href=""><img src="/static/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('projects')}}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile')}}">Profiles</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <section class="cov-phot"> <div class="cover-photo"></div></section>
+   
+
+    <section class="intro-section">
+        <div class="container">
+            <div class="row no-padding-row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="intro-title">
+                        ✦ A Fun Expedition into <br>Data Structures and Algorithms ✦
+                    </div>
+                    <div class="intro-description">
+                        Hey fellow learners! Welcome to <b>"GroupName,"</b> where we proudly unveil our completed projects, each a testament to our journey mastering data structures and algorithms. Join us in celebrating the exciting worlds of coding challenges and problem-solving!
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <br>
-    <br>    
-    <h3 style="text-align:center">Programmers' Profile</h3>
-    <div class="group-profile">
-        <div class="card">
-            <a href="{{ url_for('angel')}}">
-            <img src="{{ url_for('static', filename='angel.jpg')}}" alt="Image" style="width:100%; height: 50%">
-            </a>
-        <h2>Angel Co</h2>
-        <p class="title">Computer Engineering</p>
-        <p>Polytechnic University of the Philippines</p>
-        <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-        </div>
-        <p><button>Contact</button></p>
-        </div>
-        <div class="card">
-            <a href="{{ url_for('ck')}}">
-            <img src="{{ url_for('static', filename='ck.jpg')}}" alt="Image" style="width:100%; height: 50%">
-            </a>
-            <h2>Christian Budoy</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
+    </section>
+
+    <!-- Sneak Peek Section -->
+    <section class="sneak-peek-section">
+        <div class="container">
+            <div class="row no-padding-row">
+                <div class="col-md-12">
+                    <div class="sneak-peek-border"></div> 
+                    <div class="sneak-peek-title">
+                        Sneak Peek:
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <ul class="list-unstyled">
+                                <li><strong>Search Algorithm Exploration</strong><br> Step into our search algorithm project, where we've implemented and meticulously compared the performance of various search algorithms on different datasets. Witness the efficiency of algorithms like binary search, linear search, and more, unraveling the strengths and weaknesses of each in different scenarios.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md">
+                            <ul class="list-unstyled">
+                                <li><strong>Infix to Postfix Magic with the Stack</strong><br> Brace yourselves for our stack project, where we've harnessed the Shunting Yard algorithm's magic to convert infix expressions to postfix. Our unique twist on this classic algorithm adds a flair to expression evaluation, showcasing the elegance of stack manipulation.</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="list-unstyled">
+                                <li><strong>Queue and Deque Adventure with Linked Lists</strong><br> Dive into the world of queues and deques in our project where we've implemented these dynamic structures using linked lists. Discover the seamless operations of enqueue, dequeue, push front, pop front, push back, and pop back, making these data structures versatile companions in our coding adventures.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md">
+                            <ul class="list-unstyled">
+                                <li><strong>Hash Table Symphony</strong><br> Immerse yourself in the realm of hash tables, where we've implemented the insertion and deletion of 10-letter words with precision. Explore the intricacies of our hash function and collision resolution strategy, witnessing how these elements come together to create an efficient and dynamic data storage solution.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p><button>Contact</button></p>
         </div>
-        <div class="card">
-            <a href="{{ url_for('hernandez')}}">
-                <img src="{{ url_for('static', filename= 'hernandez.jpg')}}" alt="Image" style="width:100%; height:50%">
-            </a>
-            <h2>Dan Hernandez</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
+    </section>
+
+    <!-- Creators Section -->
+    <section class="creators-section">
+        <section class="intro-section">
+            <div class="container">
+                <div class="row no-padding-row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="intro-title">
+                            ✦ Meet the Creators ✦
+                        </div>
+                        <div class="intro-description">
+                            <b>Hey there!</b><br> We are the creative minds behind this coding portfolio, 
+                            a group of enthusiastic students<br> exploring the fascinating world of data structures and algorithms.
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p><button>Contact</button></p>
-        </div>
-        <div class="card">
-            <a href="{{ url_for('denise')}}">
-            <img src="{{ url_for('static', filename='denise.jpeg')}}" alt="Image" style="width:100%; height:50%">
-            </a>
-            <h2>Denise De Leon</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
+        </section>
+        <div class="container">
+            <div class="creators-row">
+                <div class="creator">
+                    <img src="/static/creator1.png" alt="Creator 1" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator2.png" alt="Creator 2" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator3.png" alt="Creator 3" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator4.png" alt="Creator 4" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator5.png" alt="Creator 5" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator6.png" alt="Creator 6" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator7.png" alt="Creator 7" class="img-fluid square-box">
+                </div>
+                <div class="creator">
+                    <img src="/static/creator8.png" alt="Creator 8" class="img-fluid square-box">
+                </div>
             </div>
-            <a href="/profile"><p><button>Contact</button></p></a>
         </div>
-        <div class="card">
-            <a href="{{ url_for('jiro')}}">
-                <img src="{{ url_for('static', filename= 'Jiro.jpg')}}" alt="Image" style="width:100%; height: 50%">
-            </a>
-            <h2>Jiro Ybañez</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-            </div>
-            <p><button>Contact</button></p>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer-section">
+        <div class="container text-center text-white py-2">
+            &copy; 2023 Group I BSCpE 2-6 | All rights reserved.
         </div>
-        <div class="card">
-            <a href="{{ url_for('kat')}}">
-                <img src="{{ url_for('static', filename= 'ricci.jpg')}}" alt="Image" style="width:100%; height:50%">
-            </a>
-            <h2>Katrina Batin</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-            </div>
-            <p><button>Contact</button></p>
-        </div>
-        <div class="card">
-            <a href="{{ url_for('ronio')}}">
-                <img src="{{ url_for('static', filename= 'rai.jpg')}}" alt="Image" style="width:100%; height:50%">
-            </a>
-            <h2>Ryza Ronio</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-            </div>
-            <p><button>Contact</button></p>
-        </div>
-        <div class="card">
-            <a href="{{ url_for('baneka')}}">
-                <img src="{{ url_for('static', filename= 'bunnyka.jpg')}}" alt="Image" style="width:100%; height: 50%">
-            </a>
-            <h2>Vanica Lobusta</h2>
-            <p class="title">Computer Engineering</p>
-            <p>Polytechnic University of the Philippines</p>
-            <div style="margin: 15px 0;">
-            <a href="#"><i class="fa fa-facebook"></i></a> 
-            <a href="#"><i class="fa fa-instagram"></i></a> 
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-            </div>
-            <a href="{{ url_for('contact')}}">
-            <p><button>Contact</button></p></a>
-        </div>
-    </div>
-</div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Queue Linked List</title>
+    <title>De-Que Linked List</title>
 
     <style>
         * {
@@ -21,14 +21,13 @@
             display: flex;
             flex-direction: column;
         }
-
         .navbar-logo {
             margin-left: 50px;
             height:50px; 
         }
 
         .navbar-nav {
-            padding-left: 700px;
+            padding-left: 700px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,7 +38,7 @@
         }
 
         .navbar-nav .nav-item .nav-link {
-            text-transform: uppercase;
+            text-transform: uppercase; 
             color: #ffffff; 
         }
 
@@ -58,7 +57,7 @@
 
         /* Styling for the cover photo */
         .cover-photo {
-            background-image: url('/static/queue.jpg'); 
+            background-image: url('/static/deque.jpg');
             background-size: cover;
             background-position: center;
             height: 200px; 
@@ -69,7 +68,8 @@
             padding-top: 66px;
         }
 
-        #queue-container {
+
+        #dequeContainer {
             background-color: #EAE1DA;
             margin-right: 150px;
             margin-left: 150px;
@@ -83,7 +83,7 @@
             z-index: 1;
         }
 
-        .node {
+        .deque-element {
             width: 60px;
             height: 60px;
             font-size: 25px;
@@ -96,10 +96,15 @@
             margin: 0 5px;
         }
 
-
         #controls {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 0px;
+        }
+
+        #controls2 {
+            text-align: center;
+            margin-top: 10px;
+            margin-left: 330px;
         }
 
         button, .btn {
@@ -138,6 +143,7 @@
 </head>
 <body>
 
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand navbar-logo" href=""><img src="/static/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,50 +167,72 @@
 
     <section class="cov-phot"> <div class="cover-photo"></div></section>
 
-    <div id="queue-container"></div>
+    <div id="dequeContainer"></div>
 
     <div id="controls">
-        <label for="enqueue-input">Enqueue Value:</label>
-        <input type="text" id="enqueue-input">
-        <button onclick="enqueue()">Enqueue</button>
+        <label for="enqueueInput">Enter Value:</label>
+        <input type="text" id="enqueueInput">
+        <button onclick="enqueueFront()">Enqueue Front</button>
+        <button onclick="enqueueRear()">Enqueue Rear</button>
+    </div>
 
-        <button onclick="dequeue()">Dequeue</button>
+    <div id="controls2">
+        <button onclick="dequeueFront()">Dequeue Front</button>
+        <button onclick="dequeueRear()">Dequeue Rear</button>
     </div>
 
     <script>
         function updateVisualization(elements) {
-            const container = document.getElementById("queue-container");
+            const container = document.getElementById("dequeContainer");
             container.innerHTML = "";
 
             elements.forEach(data => {
-                const node = document.createElement("div");
-                node.className = "node";
-                node.textContent = data;
-                container.appendChild(node);
+                const element = document.createElement("div");
+                element.className = "deque-element";
+                element.textContent = data;
+                container.appendChild(element);
             });
         }
 
-        async function enqueue() {
-            const inputValue = document.getElementById("enqueue-input").value;
+        async function enqueueFront() {
+            const inputValue = document.getElementById("enqueueInput").value;
             if (inputValue.trim() === "") {
                 return;
             }
 
-            const response = await fetch(`/enqueue/${inputValue}`);
+            const response = await fetch(`/enqueue_front/${inputValue}`);
             const result = await response.json();
             updateVisualization(result.elements);
         }
 
-        async function dequeue() {
-            const response = await fetch("/dequeue");
+        async function enqueueRear() {
+            const inputValue = document.getElementById("enqueueInput").value;
+            if (inputValue.trim() === "") {
+                return;
+            }
+
+            const response = await fetch(`/enqueue_rear/${inputValue}`);
             const result = await response.json();
             updateVisualization(result.elements);
         }
 
+        async function dequeueFront() {
+            const response = await fetch("/dequeue_front");
+            const result = await response.json();
+            updateVisualization(result.elements);
+        }
 
-        setTimeout(() => {
-            dequeue();
-        }, 2000);
+        async function dequeueRear() {
+            const response = await fetch("/dequeue_rear");
+            const result = await response.json();
+            updateVisualization(result.elements);
+        }
+
+        window.onload = async function() {
+            const response = await fetch("/");
+            const result = await response.json();
+            updateVisualization(result.elements);
+        };
     </script>
     <br>
     <p style="text-align: center;">
